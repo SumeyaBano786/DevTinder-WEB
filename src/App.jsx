@@ -11,6 +11,7 @@ import Profile from './components/Profile';
 import Connections from './components/Connections';
 import Request from './components/Request';
 import Signup from './components/Signup';
+import Chat from './components/Chat';
 
 const App = () => {
   return (
@@ -26,6 +27,7 @@ const App = () => {
    <Route path='/connections' element={<Connections/>}/>
    <Route path='/requests' element={<Request/>}/>
    <Route path='/signup' element={<Signup/>} />
+   <Route path='/chat/:targetUserId' element={<Chat/>}/>
 
 
    </Route> 

@@ -71,7 +71,22 @@ const EditProfile = ({user}) => {
             </div>
             <div className="w-full md:w-xs">
                 <h3 className="font-semibold">Preview</h3>
-                <UserCard user={{ firstName, lastName, age, gender, photoUrl, about }} />
+                {/*<UserCard user={{ firstName, lastName, age, gender, photoUrl, about }} /> */}
+                <div className="flex justify-center">
+            <div className="card bg-base-300 w-full md:w-96 shadow-sm">
+                <figure>
+                    <img
+                        className="object-cover"
+                        src={photoUrl}
+                        alt="profile" />
+                </figure>
+                <div className="card-body">
+                    <h2 className="card-title">{firstName} {lastName}</h2>
+                    <p>{age}, {gender}</p>
+                    <p>{about}</p>
+                    </div>
+                    </div>
+                    </div>
             </div>
               {showToast && <div className="toast toast-top toast-end mt-28 mr-6">
                 <div className="alert alert-success">

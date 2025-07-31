@@ -2,6 +2,7 @@ import axios from 'axios'
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { addConnections } from '../utils/connectionSlice';
+import { Link } from 'react-router-dom';
 
 const Connections = () => {
     const dispatch= useDispatch();
@@ -37,14 +38,14 @@ const Connections = () => {
             {connections.map((connection, index) => {
                 const { _id, firstName, lastName, age, gender, about, photoUrl } = connection;
                 return (
-                    <div key={_id} className="flex m-4 p-4 rounded-lg bg-base-300 w-full md:w-1/2 mx-auto">
-                        <div>
+                    <div key={_id} className="flex  items-center justify-between m-4 p-4 rounded-lg bg-base-300 w-full md:w-1/2 mx-auto">
+                         <div className="flex items-center">
                             <img
                                 alt="photo"
                                 className="w-20 h-20 rounded-full object-cover"
                                 src={photoUrl}
                             />
-                        </div>
+                        
                         <div className="text-left mx-4">
                             <h2 className="font-bold text-xl">
                                 {firstName + " " + lastName}
@@ -52,6 +53,12 @@ const Connections = () => {
                             {age && gender && <p>{age + ", " + gender}</p>}
                             <p>{about}</p>
                         </div>
+                        </div>
+                         <div className="ml-auto">
+                <Link to={`/chat/${_id}`}>
+                  <button className="btn btn-primary">Chat</button>
+                </Link>
+              </div>
                     </div>
                 );
             })}
